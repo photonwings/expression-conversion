@@ -1,0 +1,64 @@
+* {
+  font-size: 30px;
+  background-color: aliceblue;
+}
+
+section {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+}
+
+#card {
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 1rem;
+  display: inline-block;
+  text-align: center;
+  background-color: rgb(197, 228, 255);
+}
+
+h1 {
+  font-size: 50px;
+  text-align: center;
+  font-weight: bolder;
+  margin-bottom: 2rem;
+}
+h2 {
+  background-color: rgb(197, 228, 255);
+  border-radius: 5px;
+}
+button {
+  background-color: rgb(156, 209, 255);
+  border-radius: 5px;
+  padding: 0.4rem 1rem;
+  font-weight: bold;
+  margin: 1rem 1rem 0 1rem;
+}
+input {
+  padding: 0.5rem 1rem;
+  background-color: rgb(156, 209, 255);
+  border-radius: 5px;
+  text-align: center;
+}
+
+p {
+  background-color: rgb(156, 209, 255);
+  border-radius: 5px;
+  margin-top: 0;
+}
+
+#output-card {
+  background-color: rgb(197, 228, 255);
+  display: none;
+}
+#prefix-card, #postfix-card {
+  background-color: rgb(156, 209, 255);
+  border: 1px solid black;
+  margin: 0.5rem;
+  border-radius: 20px;
+}
+h4 {
+  background-color: rgb(156, 209, 255);
+  margin-bottom: 0.5rem;
+}
