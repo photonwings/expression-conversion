@@ -1,21 +1,27 @@
-import { postorder, build } from "./infixToPostfix.js";
+import { postorder, preorder, build } from "./infixToPostfix.js";
 const inputElement = document.getElementById("input-equation");
 const buttonElement = document.getElementById("convert-button");
 const prefixElement = document.getElementById("prefix-equation");
 const postfixElement = document.getElementById("postfix-equation");
 const outputCard = document.getElementById("output-card");
 
-// let s = "(a^b^(c/d/e-f)^(x*y-m*n))";
-
 buttonElement.addEventListener("click", () => {
-  let ans = "";
+  let postorderAns = "";
+  let preorderAns = "";
   let s = inputElement.value;
-  s = "(" + s;
-  s += ")";
-  let root = build(s);
+  if (s == "") {
+    alert("Enter Infix expression");
+  } else {
+    s = "(" + s;
+    s += ")";
+    let root = build(s);
 
-  ans = postorder(root);
+    postorderAns = postorder(root);
+    preorderAns = preorder(root);
 
-  postfixElement.innerHTML = ans;
-  outputCard.style.display = "block";
+    postfixElement.innerHTML = postorderAns;
+    prefixElement.innerHTML = preorderAns;
+
+    outputCard.style.display = "block";
+  }
 });

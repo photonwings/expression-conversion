@@ -1,3 +1,5 @@
+let postorderAns;
+let preorderAns;
 class nptr {
   constructor(c) {
     this.left = null;
@@ -12,6 +14,8 @@ function newNode(c) {
 }
 
 function build(s) {
+  preorderAns = "";
+  postorderAns = "";
   let stN = [];
 
   let stC = [];
@@ -74,13 +78,22 @@ function build(s) {
 }
 
 function postorder(root) {
-  let ans = "";
   if (root != null) {
     postorder(root.left);
     postorder(root.right);
-    ans += root.data;
+    postorderAns += root.data;
   }
-  return ans;
+  return postorderAns;
 }
 
-export {postorder, build};
+function preorder(root) {
+  if (root != null) {
+    preorderAns += root.data;
+
+    preorder(root.left);
+    preorder(root.right);
+  }
+  return preorderAns;
+}
+
+export { postorder, preorder, build };
