@@ -83,7 +83,7 @@ void CharStack::push(char ele)
 
 char CharStack::pop()
 {
-    // Stroing it in temp variable
+    // Storing it in temp variable
     CharNode* temp = top;
     char tempData = temp->data;
     // Making the element next to top as new top
