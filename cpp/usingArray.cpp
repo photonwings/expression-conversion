@@ -62,7 +62,7 @@ char CharStack::pop()
 {
     // Store top element in temp and delete element from stack
     char temp = stack[top--];
-    
+
     return temp;
 }
 

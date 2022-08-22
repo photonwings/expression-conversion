@@ -13,14 +13,30 @@
         <input type="text" id="input-equation">
         <br>
         <button id="convert-button">Convert</button>
-        <div id="output-card">
-          <div id="prefix-card">
-            <h4>Prefix Equation</h4>
-            <p id="prefix-equation"></p>
+        <div id="output-container">
+          <div class="output-card">
+            <h4>Convertion using array</h4>
+            <div class="prefix-card">
+              <h4>Prefix Equation</h4>
+              <p class="prefix-equation" id="prefix-equation-a"></p>
+            </div>
+            <div class="postfix-card">
+              <h4>Postfix Equation</h4>
+              <p class="postfix-equation" id="postfix-equation-a"></p>
+            </div>
+            <p id="time-a"></p>
           </div>
-          <div id="postfix-card">
-            <h4>Postfix Equation</h4>
-            <p id="postfix-equation"></p>
+          <div class="output-card">
+            <h4>Convertion using stack</h4>
+            <div class="prefix-card">
+              <h4>Prefix Equation</h4>
+              <p class="prefix-equation" id="prefix-equation-l"></p>
+            </div>
+            <div class="postfix-card">
+              <h4>Postfix Equation</h4>
+              <p class="postfix-equation" id="postfix-equation-l"></p>
+            </div>
+            <p id="time-l"></p>
           </div>
         </div>
       </div>
