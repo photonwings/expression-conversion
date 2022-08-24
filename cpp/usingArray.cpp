@@ -1,5 +1,7 @@
+#include <iomanip>
 #include <iostream>
 #include <string>
+#include <sys/time.h>
 
 using namespace std;
 
@@ -266,6 +268,8 @@ void postorder(Tree* root)
 int main()
 {
     string s;
+    struct timespec startTime, endTime;
+    double timeTaken;
     cout << "Enter Infix expression: ";
     cin >> s;
     cout << endl;
@@ -276,17 +280,28 @@ int main()
 
     Tree* root = build(s);
 
-    cout << "Infix expression: ";
-    inorder(root);
+    cout << "Prefix expression: ";
+    clock_gettime(CLOCK_MONOTONIC, &startTime);
+    preorder(root);
+    clock_gettime(CLOCK_MONOTONIC, &endTime);
     cout << endl;
 
-    cout << "Prefix expression: ";
-    preorder(root);
+    timeTaken = (endTime.tv_sec - startTime.tv_sec) * 1e9;
+    timeTaken = (timeTaken + (endTime.tv_nsec - startTime.tv_nsec)) * 1e-9;
+
+    cout << "Time for Inifix to Prefix: " << fixed << timeTaken << setprecision(9) << " ms." << endl;
     cout << endl;
 
     cout << "Postfix expression: ";
+    clock_gettime(CLOCK_MONOTONIC, &startTime);
     postorder(root);
+    clock_gettime(CLOCK_MONOTONIC, &endTime);
     cout << endl;
 
+    timeTaken = (endTime.tv_sec - startTime.tv_sec) * 1e9;
+    timeTaken = (timeTaken + (endTime.tv_nsec - startTime.tv_nsec)) * 1e-9;
+
+    cout << "Time for Inifix to Prefix: " << fixed << timeTaken << setprecision(9) << " sec." << endl;
+    cout << endl;
     return 0;
 }
