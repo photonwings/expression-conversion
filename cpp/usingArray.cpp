@@ -289,7 +289,7 @@ int main()
     timeTaken = (endTime.tv_sec - startTime.tv_sec) * 1e9;
     timeTaken = (timeTaken + (endTime.tv_nsec - startTime.tv_nsec)) * 1e-9;
 
-    cout << "Time for Inifix to Prefix: " << fixed << timeTaken << setprecision(9) << " ms." << endl;
+    cout << "Time for Infix to Prefix: " << fixed << timeTaken << setprecision(9) << " ms." << endl;
     cout << endl;
 
     cout << "Postfix expression: ";
@@ -301,7 +301,7 @@ int main()
     timeTaken = (endTime.tv_sec - startTime.tv_sec) * 1e9;
     timeTaken = (timeTaken + (endTime.tv_nsec - startTime.tv_nsec)) * 1e-9;
 
-    cout << "Time for Inifix to Prefix: " << fixed << timeTaken << setprecision(9) << " sec." << endl;
+    cout << "Time for Infix to Postfix: " << fixed << timeTaken << setprecision(9) << " ms." << endl;
     cout << endl;
     return 0;
 }

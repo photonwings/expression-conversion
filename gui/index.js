@@ -1,4 +1,8 @@
-import { postorderArray, preorderArray, buildArray } from "./infixToPostfixArray.js";
+import {
+  postorderArray,
+  preorderArray,
+  buildArray,
+} from "./infixToPostfixArray.js";
 const inputElement = document.getElementById("input-equation");
 const buttonElement = document.getElementById("convert-button");
 const prefixElementArray = document.getElementById("prefix-equation-a");

@@ -19,7 +19,7 @@ function buildArray(s) {
 
   let treeStack = [];
   let charStack = [];
-  
+
   let t, t1, t2;
 
   let p = new Array(123);
@@ -39,9 +39,11 @@ function buildArray(s) {
         charStack.length != 0 &&
         charStack[charStack.length - 1] != "(" &&
         ((s[i] != "^" &&
-          p[charStack[charStack.length - 1].charCodeAt()] >= p[s[i].charCodeAt()]) ||
+          p[charStack[charStack.length - 1].charCodeAt()] >=
+            p[s[i].charCodeAt()]) ||
           (s[i] == "^" &&
-            p[charStack[charStack.length - 1].charCodeAt()] > p[s[i].charCodeAt()]))
+            p[charStack[charStack.length - 1].charCodeAt()] >
+              p[s[i].charCodeAt()]))
       ) {
         t = newNode(charStack[charStack.length - 1]);
         charStack.pop();

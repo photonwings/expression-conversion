@@ -43,7 +43,7 @@ input {
   text-align: center;
 }
 
-p{
+p {
   background-color: rgb(197, 228, 255);
   border-radius: 5px;
   margin: 0 10px 10px 10px;
@@ -63,9 +63,9 @@ p{
   display: none;
   /* display: flex; */
   background-color: rgb(197, 228, 255);
-
 }
-.prefix-card, .postfix-card {
+.prefix-card,
+.postfix-card {
   background-color: rgb(156, 209, 255);
   border: 1px solid black;
   margin: 0.5rem;
