@@ -1,4 +1,9 @@
 import {
+  buildLinked,
+  postorderLinked,
+  preorderLinked,
+} from "./infitToPostfixLinked.js";
+import {
   postorderArray,
   preorderArray,
   buildArray,
@@ -10,10 +15,12 @@ const postfixElementArray = document.getElementById("postfix-equation-a");
 const prefixElementLinked = document.getElementById("prefix-equation-l");
 const postfixElementLinked = document.getElementById("postfix-equation-l");
 const outputContainer = document.getElementById("output-container");
-const timeArray = document.getElementById("time-a");
-const timeLinked = document.getElementById("time-l");
+const timeArrayPre = document.getElementById("time-a-pre");
+const timeArrayPost = document.getElementById("time-a-post");
+const timeLinkedPre = document.getElementById("time-l-pre");
+const timeLinkedPost = document.getElementById("time-l-post");
 
-buttonElement.addEventListener("click", () => {
+const createExpressionHandler = () => {
   let s = inputElement.value;
   if (s == "") {
     alert("Enter Infix expression");
@@ -25,24 +32,40 @@ buttonElement.addEventListener("click", () => {
     // Conversion using array
     let startTimeArray = performance.now();
     let postorderAnsArray = postorderArray(root);
-    let preorderAnsArray = preorderArray(root);
     let endTimeArray = performance.now();
+    timeArrayPre.innerHTML = `Time: ${endTimeArray - startTimeArray} MS`;
+
+    startTimeArray = performance.now();
+    let preorderAnsArray = preorderArray(root);
+    endTimeArray = performance.now();
+    timeArrayPost.innerHTML = `Time: ${endTimeArray - startTimeArray} MS`;
 
     postfixElementArray.innerHTML = postorderAnsArray;
     prefixElementArray.innerHTML = preorderAnsArray;
-    timeArray.innerHTML = `Time: ${endTimeArray - startTimeArray} MS`;
 
     // Conversion using Linked List
-    // let startTimeLinked = performance.now();
-    // let postorderAnsLinked = postorderLinked(root);
-    // let preorderAnsLinked = preorderLinked(root);
-    // let endTimeLinked = performance.now();
+    root = buildLinked(s);
 
-    // console.log(endTimeLinked - startTimeLinked);
-    // postfixElementLinked.innerHTML = postorderAnsLinked;
-    // prefixElementLinked.innerHTML = preorderAnsLinked;
-    // timeLinked.innerHTML = `Time: ${endTimeLinked - startTimeLinked} MS`;
+    let startTimeLinked = performance.now();
+    let postorderAnsLinked = postorderLinked(root);
+    let endTimeLinked = performance.now();
+    timeLinkedPre.innerHTML = `Time: ${endTimeLinked - startTimeLinked} MS`;
+
+    startTimeLinked = performance.now();
+    let preorderAnsLinked = preorderLinked(root);
+    endTimeLinked = performance.now();
+    timeLinkedPost.innerHTML = `Time: ${endTimeLinked - startTimeLinked} MS`;
+
+    postfixElementLinked.innerHTML = postorderAnsLinked;
+    prefixElementLinked.innerHTML = preorderAnsLinked;
 
     outputContainer.style.display = "flex";
+  }
+};
+
+buttonElement.addEventListener("click", createExpressionHandler);
+inputElement.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    createExpressionHandler();
   }
 });
